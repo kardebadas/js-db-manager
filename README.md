@@ -4,34 +4,34 @@ Javascript Object to manager the browser DB
 
 ## Usage
 
-- Select DB
+- Select Table
 ```js
-dbi.use('MY_DB');
+dbi.use('MY_TABLE_NAME');
 ```
 
-- Select db row
+- Select table row
 ```js
-dbi.getRow('DB_KEY_INDEX', function (value) {
+dbi.getRow('TABLE_KEY_INDEX', function (value) {
   //....
 });
 ```
 
 - Select row value
 ```js
-dbi.getVal('DB_KEY_INDEX'); //Return value
+dbi.getVal('TABLE_KEY_INDEX'); //Return value
 ```
 
 - Set & Save DB Row
 ```js
-dbi.set('DB_KEY_INDEX', value);
+dbi.set('TABLE_KEY_INDEX', value);
 ```
 
-- Delete DB Row
+- Delete table Row
 ```js
-dbi.del('DB_KEY_INDEX');
+dbi.del('TABLE_KEY_INDEX');
 ```
 
-- Empty DB / Truncate
+- Empty table / Truncate
 ```js
 dbi.empty();
 ```
