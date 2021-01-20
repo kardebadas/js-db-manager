@@ -1,3 +1,26 @@
+const DBName = 'MyDBName'
+  , DBVersion = 4;
+
+
+//init your DB
+var openRequest = idb.open(DBName, DBVersion);
+openRequest.onupgradeneeded = function (e) {
+  var db = e.target.result;
+  console.log('Running onupgradeneeded, new version ' + DBVersion);
+  if (!db.objectStoreNames.contains('MY_TABLE_NAME')) {
+    let t = db.createObjectStore('MY_TABLE_NAME', {keyPath: 'key'});
+  }
+};
+openRequest.onsuccess = function (e) {
+  console.log('DB running');
+  db = e.target.result;
+};
+openRequest.onerror = function (e) {
+  console.error('DB Error (1)');
+  console.log(e);
+};
+
+//DB OBject
 window.dbi = {
   success: false,
   use: function (n) {
